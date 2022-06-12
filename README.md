@@ -1,1 +1,1 @@
-# Small information site in Node.
+Basic Information site in Node.
