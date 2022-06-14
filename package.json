@@ -1,0 +1,22 @@
+{
+  "name": "basic-informational-site",
+  "version": "1.0.0",
+  "description": "Basic Information site in Node.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hasan-Iqtedar/basic-informational-site.git"
+  },
+  "author": "Hasan Iqtedar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hasan-Iqtedar/basic-informational-site/issues"
+  },
+  "homepage": "https://github.com/Hasan-Iqtedar/basic-informational-site#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}

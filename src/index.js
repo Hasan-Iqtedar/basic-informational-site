@@ -1,5 +1,5 @@
-const http = require("http");
 const fs = require("fs/promises");
+const express = require("express");
 
 port = 8080;
 
@@ -14,28 +14,35 @@ const getContent = async (fileName) => {
   return content;
 };
 
-const server = http.createServer((req, res) => {
+const app = express();
+
+app.get("/", (req, res) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/html");
 
-  const page = req.url;
-  console.log(page);
-  let file = "";
-
-  if (page === "/index.html" || page === "/") {
-    file = "index.html";
-  } else if (page === "/about.html") {
-    file = "about.html";
-  } else if (page === "/contact-me.html") {
-    file = "contact-me.html";
-  } else {
-    file = "404.html";
-  }
-  getContent(file).then((data) => {
+  getContent("index.html").then((data) => {
     res.end(data.toString());
   });
 });
 
-server.listen(port, () => {
-  console.log("Listening...");
+app.get("/about.html", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "text/html");
+
+  getContent("about.html").then((data) => {
+    res.end(data.toString());
+  });
+});
+
+app.get("/contact-me.html", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "text/html");
+
+  getContent("contact-me.html").then((data) => {
+    res.end(data.toString());
+  });
+});
+
+app.listen(port, () => {
+  console.log("Server is Listening...");
 });
